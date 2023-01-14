@@ -13,6 +13,10 @@ const btnRight = document.querySelector('#right');
 const btnDown = document.querySelector('#down');
 window.addEventListener('keydown', moveBykeys);
 
+//boton reinicio
+const btnReset = document.querySelector('#reset');
+btnReset.addEventListener('click', resetGame);
+
 //player position
 const playerPosition = {
     x: undefined,
@@ -238,4 +242,14 @@ function showTime() {
 
 function showRecord() {
     spanRecord.innerHTML = localStorage.getItem('record_time');
+}
+
+function resetGame() {
+    timeStart = undefined;
+    lives = 3;
+    level = 0;
+    
+    playerPosition.x = undefined;
+    playerPosition.y = undefined;
+    startGame();
 }
